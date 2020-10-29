@@ -15,6 +15,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('CounterReducer')}
         title="Go to Counter + Reducer Screen"
       />
+      <Button onPress={() => navigation.navigate('Password')} title="Go to Password Screen" />
     </View>
   )
 }

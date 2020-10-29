@@ -4,7 +4,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native'
 const reducer = (state, action) => {
 }
 const PasswordScreen = () => {
-  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Enter Password: </Text>
@@ -13,10 +13,10 @@ const PasswordScreen = () => {
       autoCapitalize = "none"
       autoCorrect={false}
       secureTextEntry={true}
-      value = {name}
-      onChangeText = {(newValue) => setName(newValue)}
+      value = {password}
+      onChangeText = {(newValue) => setPassword(newValue)}
       />
-      <Text style={name.length < 5 ? styles.errorText : styles.validText}>{ name.length < 5 ? 'Password must be longer than 5 characters' : 'Your password is valid 🎉' }</Text>
+      <Text style={password.length < 5 ? styles.errorText : styles.validText}>{ password.length < 5 ? 'Password must be longer than 5 characters' : 'Your password is valid 🎉' }</Text>
     </View>
   )
 }

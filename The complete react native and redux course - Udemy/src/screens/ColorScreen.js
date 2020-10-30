@@ -4,7 +4,7 @@ import { View, Button, Text, FlatList, StyleSheet } from 'react-native'
 const ColorScreen = () => {
   const [colors, setColors] = useState([])
   return (
-    <View>
+    <View style={styles.container}>
       <Button
         title="Add a color"
         onPress={() => {
@@ -12,10 +12,12 @@ const ColorScreen = () => {
         }}
       />
       <FlatList
+        key={'FlatList'}
         keyExtractor={(item) => item}
         data={colors}
+        numColumns={3}
         renderItem={({ item }) => {
-          return <View style={{ height: 100, width: 100, backgroundColor: item }}></View>
+          return <View style={{ height: 100, width: 100, backgroundColor: item, margin: 5 }}></View>
         }}
       />
     </View>
@@ -29,6 +31,10 @@ const randomRgb = () => {
 
   return `rgb(${red}, ${green}, ${blue})`
 }
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center'
+  }
+})
 
 export default ColorScreen

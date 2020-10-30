@@ -16,6 +16,7 @@ const HomeScreen = ({ navigation }) => {
         title="Go to Counter + Reducer Screen"
       />
       <Button onPress={() => navigation.navigate('Password')} title="Go to Password Screen" />
+      <Button onPress={() => navigation.navigate('Box')} title="Go to Box Screen" />
     </View>
   )
 }

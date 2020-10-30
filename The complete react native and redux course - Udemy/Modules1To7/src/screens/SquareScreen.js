@@ -36,10 +36,13 @@ const SquareScreen = () => {
   }
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
   const { red, green, blue } = state
-  console.log(red, green, blue)
   return (
-    <View>
-      <Text>Square Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.titleStyle}>Color Picker Screen</Text>
+      <View
+        style={{ height: 160, width: 160, borderRadius: 80, backgroundColor: `rgb(${red}, ${green}, ${blue})` }}
+      />
+      <View style={styles.counterContainer}>
       <ColorCounter
         color="Red"
         onIncrease={() => dispatch({ type: 'CHANGE_RED', payload: COLOR_INCREMENT })}
@@ -55,13 +58,25 @@ const SquareScreen = () => {
         onIncrease={() => dispatch({ type: 'CHANGE_BLUE', payload: COLOR_INCREMENT })}
         onDecrease={() => dispatch({ type: 'CHANGE_BLUE', payload: COLOR_DECREMENT })}
       />
-      <View
-        style={{ height: 150, width: 150, backgroundColor: `rgb(${red}, ${green}, ${blue})` }}
-      />
+      </View>
+
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  titleStyle: {
+    fontSize: 20,
+    fontWeight: '400',
+    marginVertical: 10
+  },
+  container: {
+    alignItems: 'center'
+  },
+  counterContainer: {
+    flexDirection: 'row',
+    marginTop: 10
+  }
+})
 
 export default SquareScreen
